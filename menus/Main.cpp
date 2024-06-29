@@ -1,4 +1,4 @@
-/*
+ /*
 Copyright (C) 1997-2001 Id Software, Inc.
 
 This program is free software; you can redistribute it and/or
@@ -190,7 +190,7 @@ void CMenuMain::_Init( void )
 	else bCustomGame = false;
 
 	// console
-	console.SetNameAndStatus( L( "GameUI_Console" ), L( "Show console" ) );
+	console.SetNameAndStatus( L( "GameUI_Console" ), NULL );
 	console.iFlags |= QMF_NOTIFY;
 	console.SetPicture( PC_CONSOLE );
 	SET_EVENT_MULTI( console.onReleased,
@@ -199,33 +199,33 @@ void CMenuMain::_Init( void )
 		EngFuncs::KEY_SetDest( KEY_CONSOLE );
 	});
 
-	resumeGame.SetNameAndStatus( L( "GameUI_GameMenu_ResumeGame" ), L( "StringsList_188" ) );
+	resumeGame.SetNameAndStatus( L( "GameUI_GameMenu_ResumeGame" ), NULL );
 	resumeGame.SetPicture( PC_RESUME_GAME );
 	resumeGame.iFlags |= QMF_NOTIFY;
 	resumeGame.onReleased = UI_CloseMenu;
 
-	disconnect.SetNameAndStatus( L( "GameUI_GameMenu_Disconnect" ), L( "Disconnect from server" ) );
+	disconnect.SetNameAndStatus( L( "GameUI_GameMenu_Disconnect" ), NULL );
 	disconnect.SetPicture( PC_DISCONNECT );
 	disconnect.iFlags |= QMF_NOTIFY;
 	disconnect.onReleased = VoidCb( &CMenuMain::DisconnectDialogCb );
 
-	newGame.SetNameAndStatus( L( "GameUI_NewGame" ), L( "StringsList_189" ) );
+	newGame.SetNameAndStatus( L( "GameUI_NewGame" ), NULL );
 	newGame.SetPicture( PC_NEW_GAME );
 	newGame.iFlags |= QMF_NOTIFY;
 	newGame.onReleased = UI_NewGame_Menu;
 
-	hazardCourse.SetNameAndStatus( L( "GameUI_TrainingRoom" ), L( "StringsList_190" ) );
+	hazardCourse.SetNameAndStatus( L( "GameUI_TrainingRoom" ), NULL );
 	hazardCourse.SetPicture( PC_HAZARD_COURSE );
 	hazardCourse.iFlags |= QMF_NOTIFY;
 	hazardCourse.onReleasedClActive = VoidCb( &CMenuMain::HazardCourseDialogCb );
 	hazardCourse.onReleased = VoidCb( &CMenuMain::HazardCourseCb );
 
-	multiPlayer.SetNameAndStatus( L( "GameUI_Multiplayer" ), L( "StringsList_198" ) );
+	multiPlayer.SetNameAndStatus( L( "GameUI_Multiplayer" ), NULL );
 	multiPlayer.SetPicture( PC_MULTIPLAYER );
 	multiPlayer.iFlags |= QMF_NOTIFY;
 	multiPlayer.onReleased = UI_MultiPlayer_Menu;
 
-	configuration.SetNameAndStatus( L( "GameUI_Options" ), L( "StringsList_193" ) );
+	configuration.SetNameAndStatus( L( "GameUI_Options" ), NULL );
 	configuration.SetPicture( PC_CONFIG );
 	configuration.iFlags |= QMF_NOTIFY;
 	configuration.onReleased = UI_Options_Menu;
@@ -234,12 +234,12 @@ void CMenuMain::_Init( void )
 	saveRestore.onReleasedClActive = UI_SaveLoad_Menu;
 	saveRestore.onReleased = UI_LoadGame_Menu;
 
-	customGame.SetNameAndStatus( L( "GameUI_ChangeGame" ), L( "StringsList_530" ) );
+	customGame.SetNameAndStatus( L( "GameUI_ChangeGame" ), NULL );
 	customGame.SetPicture( PC_CUSTOM_GAME );
 	customGame.iFlags |= QMF_NOTIFY;
 	customGame.onReleased = UI_CustomGame_Menu;
 
-	quit.SetNameAndStatus( L( "GameUI_GameMenu_Quit" ), L( "StringsList_236" ) );
+	quit.SetNameAndStatus( L( "GameUI_GameMenu_Quit" ), NULL );
 	quit.SetPicture( PC_QUIT );
 	quit.iFlags |= QMF_NOTIFY;
 	quit.onReleased = MenuCb( &CMenuMain::QuitDialog );
@@ -340,12 +340,12 @@ void CMenuMain::_VidInit( void )
 
 	if( CL_IsActive( ))
 	{
-		saveRestore.SetNameAndStatus( L( "Save\\Load Game" ), L( "StringsList_192" ) );
+		saveRestore.SetNameAndStatus( L( "Save\\Load Game" ), NULL );
 		saveRestore.SetPicture( PC_SAVE_LOAD_GAME );
 	}
 	else
 	{
-		saveRestore.SetNameAndStatus( L( "GameUI_LoadGame" ), L( "StringsList_191" ) );
+		saveRestore.SetNameAndStatus( L( "GameUI_LoadGame" ), NULL );
 		saveRestore.SetPicture( PC_LOAD_GAME );
 	}
 
